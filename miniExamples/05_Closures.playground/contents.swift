@@ -1,15 +1,38 @@
 var values = [10, 5, 2, 8, 3, 6, 1, 1000]
 
 // Verbose Closure
-
-
+var  numValueOver5 = values.reduce(0, {(runningTotal: Int, currentValue:Int) -> Int in
+    return currentValue > 5 ? runningTotal + 1 : runningTotal
+})
+numValueOver5
 
 
 
 // Closure parameter name shorthand and trailing closure
 
+numValueOver5 = values.reduce(0) {(runningTotal: Int, currentValue:Int) -> Int in
+    return currentValue > 5 ? runningTotal + 1 : runningTotal
+}
+numValueOver5
+//shorthand of number one
+
+numValueOver5 = values.reduce(0) {(runningTotal, currentValue) -> Int in
+    return currentValue > 5 ? runningTotal + 1 : runningTotal
+}
+numValueOver5
+//shorthand of number two
 
 
+numValueOver5 = values.reduce(0) {(runningTotal, currentValue) -> Int in
+    currentValue > 5 ? runningTotal + 1 : runningTotal
+}
+numValueOver5
+//shorthand of number three
+
+numValueOver5 = values.reduce(0) {
+    $1 > 5 ? $0 + 1 : $0 //$1 is second argument, $0 is the first argument
+}
+numValueOver5
 
 
 

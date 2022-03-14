@@ -3,26 +3,29 @@ import UIKit
 // Basics for arrays
 var names = ["Dave", "Kristy", "McKinley", "Keegan", "Bowen", "Neala"]
 
-
-
-
-
-
-
-
-
+names[1]
+names[2] = "Kingsley"
+names
 
 // Appending values
+names.append("ryker")
+names.append("DDD")
+if names.contains("ryker"){
+    print("ryker is here")
+}
 
+names += ["Bob", "Ambere"]
+names
 
+names.removeLast()
+names
 
-
-
-
-
-
-
-
+names.removeAll()
+if names.isEmpty{
+    print("Nobody's here")
+}else{
+    print("It still has values")
+}
 
 
 // So, so, SO.. many things you could do with arrays...

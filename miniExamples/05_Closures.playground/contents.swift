@@ -38,6 +38,11 @@ numValueOver5
 
 // A Closure using a closure for a variable
 
+func numValuesOverLimit(_ values : [Int], limit threshold : Int)->Int{
+    return values.reduce(0) {(runningTotal: Int, currentValue:Int) -> Int in
+        currentValue > threshold ? runningTotal + 1 : runningTotal
+    }
+}
 
 
 
@@ -45,9 +50,8 @@ numValueOver5
 
 
 
-
-//numValuesOverLimit(values, limit: 5)
-//numValuesOverLimit(values, limit: 9)
+numValuesOverLimit(values, limit: 5)
+numValuesOverLimit(values, limit: 9)
 
 
 // Comparing func and closure syntax

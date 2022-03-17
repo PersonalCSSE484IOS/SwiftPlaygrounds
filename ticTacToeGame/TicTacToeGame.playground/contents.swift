@@ -47,14 +47,8 @@ class TicTacToeGame: CustomStringConvertible{
             print("The gmae has already been won")
             return
         }
-    }
-    
-    func getGameString(_ indicies: [Int] = [0, 1, 2, 3, 4, 5, 6, 7, 8]) -> String {
-        var gameString = ""
-        for index in indicies{
-            gameString += board[index].rawValue
-        }
-        return gameString
+        
+        checkForWin()
     }
     
     func checkForWin(){
@@ -74,12 +68,28 @@ class TicTacToeGame: CustomStringConvertible{
         for lineOf3 in linesOf3{
             if(lineOf3 == "XXX"){
                 state = .xWon
+                return
             }else if(lineOf3 == "OOO"){
                 state = .oWon
+                return
             }
+        }
+        
+        if(!self.board.contains(.none)){
+            state = .tie
         }
 
     }
+    
+    func getGameString(_ indicies: [Int] = [0, 1, 2, 3, 4, 5, 6, 7, 8]) -> String {
+        var gameString = ""
+        for index in indicies{
+            gameString += board[index].rawValue
+        }
+        return gameString
+    }
+    
+    
     
     var description: String{
         return "\(state.rawValue) \(getGameString())"
